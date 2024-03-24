@@ -2,9 +2,18 @@
 
 DEBUG=True
 
-from flask import Flask, request, make_response
+from flask import Flask, request, make_response, render_template
 
 app = Flask(__name__)
+
+
+
+@app.route('/')
+def index():
+    myval='neural9'
+    myresult = 10 + 20
+    mylist = [0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768]
+    return render_template('index.html', list = mylist)
 
 
 @app.route('/hello')
@@ -14,15 +23,9 @@ def hello():
     response.headers['content-type'] = 'text/plain'
     return response
 
-
-
 @app.route('/login/<name>')
 def login(name):
     return f'<h3>Logging in {name}.'
-
-@app.route('/')
-def index():
-    return "<h3>Hello, World!<h3>"
 
 @app.route('/add/<num1>/<num2>')
 def add(num1, num2):

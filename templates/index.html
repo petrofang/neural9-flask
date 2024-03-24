@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Flask App</title>
+</head>
+<body>
+    <h1> hello... WORLD</h1>
+    <ul>
+        {% for item in list %}
+            <li {% if item == 256 %}style="color:red"{%endif%}>{{item}}</li>
+        {% endfor %}
+    </ul>
+    <p>{{ list }}</p>
+</body>
+</html>
+
+
