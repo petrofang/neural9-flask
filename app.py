@@ -16,6 +16,10 @@ def index():
     return render_template('index.html', list = mylist)
 
 
+@app.route('/2')
+def page2():
+    return render_template('page2.html')
+
 @app.route('/hello')
 def hello():
     response = make_response('Hello World\n')
