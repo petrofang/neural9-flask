@@ -2,7 +2,8 @@
 
 DEBUG=True
 
-from flask import Flask, request, make_response, render_template
+from flask import Flask, request, make_response, render_template, redirect
+from flask import url_for
 
 app = Flask(__name__)
 
@@ -33,8 +34,11 @@ def leet_case(s):
             s_leet += (l.upper())
     return s_leet
         
+@app.route('/redirect_endpoint')
+def redirect_endpoint():
+    return redirect(url_for('other'))
 
-@app.route('/2')
+@app.route('/filters')
 def other():
     some_text="hello, world, again!"
     return render_template('page2.html', text=some_text)
