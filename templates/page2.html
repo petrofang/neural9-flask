@@ -2,6 +2,13 @@
 
 {% block title %}Page 2{% endblock %}
 {% block content %}
-    <h1> Oh hi there world</h1>
-
+    <h1>Filters</h1>
+    {{text|upper}}<br>
+    {{text|lower}}<br>
+    {{text|title}}<br>
+    {{text|replace('a', '4')|replace('o', '0')}} <br>
+    <br>{{text|reverse_string}}<br>
+    <br>{{text|repeat(5)}}<br>
+    {{text|leet_case}}<br>
+    
 {% endblock %}

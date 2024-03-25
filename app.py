@@ -15,10 +15,29 @@ def index():
     mylist = [0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768]
     return render_template('index.html', list = mylist)
 
+@app.template_filter('reverse_string')
+def reverse_string(s):
+    return s[::-1]
+
+@app.template_filter('repeat')
+def repeat(s, times=0):
+    return s*(max(times,1))
+
+@app.template_filter('leet_case')
+def leet_case(s):
+    s_leet = ""
+    for l in s.lower():
+        if l in 'aeiouy':
+            s_leet += (l.lower())
+        else:
+            s_leet += (l.upper())
+    return s_leet
+        
 
 @app.route('/2')
-def page2():
-    return render_template('page2.html')
+def other():
+    some_text="hello, world, again!"
+    return render_template('page2.html', text=some_text)
 
 @app.route('/hello')
 def hello():
